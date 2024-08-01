@@ -46,7 +46,7 @@ module "SG_FROM_SCRATCH" {
   vpc_id      =  module.vpc_from_scratch.vpc_id
 
   ingress_cidr_blocks      = ["10.10.0.0/24"]
-  ingress_rules            = ["https-443-tcp", "  http-80-tcp", "http-8080-tcp",  "https-8443-tcp"]
+  ingress_rules            = ["https-443-tcp", "http-80-tcp", "http-8080-tcp",  "https-8443-tcp"]
   ingress_with_cidr_blocks = [
     {
       from_port   = 8080
