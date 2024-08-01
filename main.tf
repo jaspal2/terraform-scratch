@@ -38,15 +38,15 @@ module "vpc_from_scratch" {
 
 
 
-module "SG_from_scratch" {
+module "vpc_from_scratch" {
   source = "terraform-aws-modules/security-group/aws"
 
   name        = "user-service"
   description = "Security group for user-service with custom ports open within VPC, and PostgreSQL publicly open"
-  vpc_id      = module.vpc_from_scratch.id
+  vpc_id      =  module.vpc_custom.vpc_id
 
-  ingress_cidr_blocks      = ["10.10.0.0/16"]
-  ingress_rules            = ["https-443-tcp", "  http-80-tcp", "http-8080-tcp",  https-8443-tcp]
+  ingress_cidr_blocks      = ["10.10.0.0/24"]
+  ingress_rules            = ["https-443-tcp", "  http-80-tcp", "http-8080-tcp",  "https-8443-tcp"]
   ingress_with_cidr_blocks = [
     {
       from_port   = 8080
