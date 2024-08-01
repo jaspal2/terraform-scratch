@@ -38,7 +38,7 @@ module "vpc_from_scratch" {
 
 
 
-module "vpc_from_scratch" {
+module "SG_FROM_SCRATCH" {
   source = "terraform-aws-modules/security-group/aws"
 
   name        = "user-service"
