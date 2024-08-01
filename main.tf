@@ -20,7 +20,6 @@ resource "aws_eip" "nat" {
 
   vpc = true
 }
-Copy
 
 
 
@@ -37,7 +36,6 @@ module "vpc_from_scratch" {
   enable_nat_gateway = true
   single_nat_gateway = true
   one_nat_gateway_per_az = false  #deploy NAT
-
   external_nat_ip_ids = "${aws_eip.nat.*.id}"
 
   tags = {
